@@ -16,6 +16,13 @@ function handleEvents(client) {
     if (!channel) return;
     channel.send(`Siema kurwo, ${member}`);
   });
+  client.on("guildMemberRemove", (member) => {
+    const channel = member.guild.channels.cache.find(
+      (ch) => ch.name === "siema"
+    );
+    if (!channel) return;
+    channel.send(`Naura, ${member}`);
+  });
 }
 
 module.exports = handleEvents;
